@@ -1,0 +1,116 @@
+<!-- fillupform.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Payroll - Payroll System</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #0288d1, #009688, #00796b, #004d40);
+            z-index: -1;
+            animation: moveBackground 10s linear infinite;
+        }
+
+        @keyframes moveBackground {
+            0% {
+                background-position: 0% 0%;
+            }
+            100% {
+                background-position: 100% 100%;
+            }
+        }
+
+        #attendance-container {
+            background-color: rgba(255, 255, 255, 0.8);
+            text-align: center;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            z-index: 1;
+            position: relative;
+            width: 80%; /* Adjusted width for better visibility on smaller screens */
+            margin: 10% auto;
+        }
+
+        h2 {
+            color: #00796b;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1em;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        #submit-button {
+            background-color: #00796b;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s ease;
+        }
+
+        #submit-button:hover {
+            background-color: #004d40;
+        }
+    </style>
+</head>
+<body>
+
+<div id="attendance-container">
+    <h2>Employee Payroll</h2>
+    <form id="attendance-form" onsubmit="submitForm(event)">
+        <label for="employee-name">Employee's Name</label>
+        <input type="text" id="employee-name" name="employee-name" placeholder="Enter employee's name" required>
+
+        <label for="employee-number">Employee's Number</label>
+        <input type="text" id="employee-number" name="employee-number" placeholder="Enter employee's number" pattern="\d*" title="Please enter only numbers" required>
+
+        <label for="date">Date</label>
+        <input type="date" id="date" name="date" required>
+
+        <label for="pay-rate">Pay Rate (per hour)</label>
+        <input type="text" id="pay-rate" name="pay-rate" placeholder="Enter pay rate" pattern="\d*" title="Please enter only numbers" required>
+
+        <label for="hours-worked">Hours Worked</label>
+        <input type="text" id="hours-worked" name="hours-worked" placeholder="Enter hours worked" pattern="\d*" title="Please enter only numbers" required>
+
+        <label for="taxes">Taxes</label>
+        <input type="text" id="taxes" name="taxes" placeholder="Enter taxes" pattern="\d*" title="Please enter only numbers" required>
+
+        <label for="health-insurance">Health Insurance</label>
+        <input type="text" id="health-insurance" name="health-insurance" placeholder="Enter health insurance" pattern="\d*" title="Please enter only numbers" required>
+
+        <button type="submit" id="submit-button">Submit</button>
+    </form>
+</div>
+
+<script src="fillupform.js"></script>
+</body>
+</html>
